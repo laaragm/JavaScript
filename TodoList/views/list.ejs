@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- EJS Layouts -->
+<%- include('header') -%>
+
+<body>
+    
+    <div class="box" id="heading">
+        <!-- Outputs the value into the template-->
+        <h1> <%= listTitle %> </h1>
+    </div>
+
+    <div class="box">
+        <% for (var i = 0; i < items.length; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p> <%= items[i] %> </p>
+            </div>
+        <% } %>
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="list" value="<%= listTitle %>">+</button>
+        </form>
+    </div>
+
+    <!-- Scriptlet tag, for control-flow, no output; put it around 
+    everything that's not html -->
+    <!-- <% if(listTitle === "Saturday" || listTitle === "Sunday") { %>
+        <h1 style="color: rgb(255, 0, 76)"> <%= listTitle %> ToDo List </h1>
+    <% } else { %>
+        <h1 style="color: green"> <%= listTitle %> ToDo List </h1>
+    <% } %> -->
+
+</body>
+
+<%- include('footer') -%>
+
+</html>
